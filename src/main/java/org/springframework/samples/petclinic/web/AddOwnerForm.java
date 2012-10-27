@@ -2,6 +2,7 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.samples.petclinic.Clinic;
 import org.springframework.samples.petclinic.Owner;
 import org.springframework.samples.petclinic.validation.OwnerValidator;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
 
 /**
  * JavaBean form controller that is used to add a new <code>Owner</code> to the
@@ -37,6 +39,11 @@ public class AddOwnerForm {
 		this.clinic = clinic;
 	}
 
+  @InitBinder
+  public void initBinder(WebDataBinder binder, WebRequest request) {
+      binder.registerCustomEditor(String.class, new StringTrimmerEditor(false));
+  }  
+  
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
 		dataBinder.setDisallowedFields("id");
