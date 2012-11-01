@@ -7,6 +7,10 @@
 <ul>
   <li><a href="<spring:url value="/owners/search" htmlEscape="true" />">Find owner</a></li>
   <li><a href="<spring:url value="/vets" htmlEscape="true" />">Display all veterinarians</a></li>
+  <li><a href="<spring:url value="/grails/pet/" htmlEscape="true" />">Display all pets</a></li>
+  <li><a href="<spring:url value="/grails/pet/types" htmlEscape="true" />">Display all pet types</a></li>
+  <li><a href="<spring:url value="/grails/pet/mascot" htmlEscape="true" />">Our mascot</a></li>
+  <li><a href="<spring:url value="/grails/pet/hotel-status" htmlEscape="true" />">Pet hotel status</a></li>    
   <li><a href="<spring:url value="/static/html/tutorial.html" htmlEscape="true" />">Tutorial</a></li>
 </ul>
 

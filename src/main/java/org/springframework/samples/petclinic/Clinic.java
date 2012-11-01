@@ -79,4 +79,6 @@ public interface Clinic {
 	 */
 	void deletePet(int id) throws DataAccessException;
 
+	/** Retrieves all pets. */
+	public Collection<Pet> getPets() throws DataAccessException;
 }

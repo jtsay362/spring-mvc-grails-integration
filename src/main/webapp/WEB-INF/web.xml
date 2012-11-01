@@ -26,6 +26,14 @@
 		<param-value>/WEB-INF/classes/log4j.properties</param-value>
 	</context-param>
 
+  <!-- Load both XML and Groovy bean definitions. -->
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>
+      com.ngweb.web.springmvc.grails.HybridWebApplicationContext
+    </param-value>
+  </context-param>
+
 	<!--
 		- Location of the XML file that defines the root application context.
 		- Applied by ContextLoaderServlet.
@@ -37,7 +45,11 @@
 	-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/applicationContext-jdbc.xml</param-value>
+		<param-value>
+		  /WEB-INF/spring/applicationContext-hibernate.xml
+		  /WEB-INF/spring/applicationContext-grails.xml
+		  /WEB-INF/spring/applicationContext.groovy
+		</param-value>
         <!--
 		<param-value>/WEB-INF/spring/applicationContext-hibernate.xml</param-value>
 		<param-value>/WEB-INF/spring/applicationContext-jpa.xml</param-value>

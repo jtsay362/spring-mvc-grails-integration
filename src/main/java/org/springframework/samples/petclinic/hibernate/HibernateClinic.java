@@ -95,4 +95,11 @@ public class HibernateClinic implements Clinic {
 		sessionFactory.getCurrentSession().delete(pet);
 	}
 
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")	
+	public Collection<Pet> getPets() {
+		return sessionFactory.getCurrentSession().createQuery(
+				"from Pet pet order by pet.name").list();
+	}
+	
 }

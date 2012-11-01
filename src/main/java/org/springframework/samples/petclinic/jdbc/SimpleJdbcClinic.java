@@ -243,6 +243,11 @@ public class SimpleJdbcClinic implements Clinic, SimpleJdbcClinicMBean {
 		this.simpleJdbcTemplate.update("DELETE FROM pets WHERE id=?", id);
 	}
 
+	public Collection<Pet> getPets() {
+		throw new RuntimeException(
+				"Who is old-school enough to use JDBC for this?!");
+	}	
+	
 	// END of Clinic implementation section ************************************
 
 

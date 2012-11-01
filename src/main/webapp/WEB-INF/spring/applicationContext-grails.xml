@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!--  For Grails mappings -->
+  <beans xmlns="http://www.springframework.org/schema/beans" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   ">
+  <bean id="grailsApplication" class="com.ngweb.web.springmvc.grails.FakeGrailsApplication" />  
+  
+  <bean id="grailsUrlConverter" class="grails.web.HyphenatedUrlConverter" />
+  
+  <!--  Dummy implementation needed for grailsLinkGenerator -->
+  <bean id="grailsUrlMappingsHolder" 
+   class="org.codehaus.groovy.grails.web.mapping.DefaultUrlMappingsHolder" >
+    <constructor-arg>
+      <list></list>    
+    </constructor-arg>  
+  </bean>
+  
+  <bean id="grailsLinkGenerator" class="org.codehaus.groovy.grails.web.mapping.DefaultLinkGenerator">
+    <constructor-arg value="http://localhost:8080/" />
+    <constructor-arg value="" />
+  </bean>
+  
+  <bean id="groovyPagesTemplateEngine" 
+   class="org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine" />
+   
+  <bean id="groovyPagesUriService"
+   class="org.codehaus.groovy.grails.web.pages.DefaultGroovyPagesUriService" />
+
+</beans>

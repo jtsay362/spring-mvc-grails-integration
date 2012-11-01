@@ -93,4 +93,10 @@ public class EntityManagerClinic implements Clinic {
 		this.em.remove(pet);
 	}
 
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")	
+	public Collection<Pet> getPets() {
+		return this.em.createQuery(
+				"SELECT FROM Pet pet ORDER BY pet.name").getResultList();
+	}
 }
