@@ -1,7 +1,5 @@
 package org.springframework.samples.petclinic.web
 
-import groovy.lang.Closure
-
 class UrlMappings {
 		static Closure mappings = {
 				
@@ -12,10 +10,8 @@ class UrlMappings {
 				}
 				
 				"/"(view:"/index")
-				"500"(view:'/error')
-				"/nappy"(controller: 'nappy', view:'/asdg')
-				"/directview"(view : 'test/directtoview')
-				
-				"/uri"(uri : '/test/content')
+				"/try-luck"(controller: 'fish', action:'testLuck')
+				"/shots"(view : 'shot-list')				
+				"/vets-old"(uri : '/vets')
 		}
 }
