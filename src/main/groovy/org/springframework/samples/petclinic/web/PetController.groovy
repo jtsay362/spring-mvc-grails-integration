@@ -9,18 +9,6 @@ class PetController {
 	def Clinic clinic
 	def Pet mascot
 	
-  //def defaultAction = "index2"
-
-  def index2() {
-      response << "Pet"
-    
-  }
-  
-  def index3() {
-      response << "Lily"
-    
-  } 
-	
 	def index() {
 		model["pets"] = clinic.pets
 		render(view : "/grails/pet/list", model : model)
@@ -30,7 +18,7 @@ class PetController {
 		render(view : "/grails/pet/types", model : [petTypes : clinic.petTypes])
 	}	
 	
-	def mascot() {
+	def showMascot() {
 		model["mascot"] = mascot
 		return model
 	}
@@ -48,4 +36,28 @@ class PetController {
 		return null		
 	}
 	
+	def eat() {
+		response << "${mascot.name} says the food is ${params.taste}!"  			
+	}
+
+	def resource() {
+		render(text: "<pet name=\"${mascot.name}\"></pet>", contentType: "text/xml", encoding: "UTF-8")				
+	}	
+	
+	def renderStatus()
+	{
+		render(status: 503, text: 'You are wrong')
+	}
+	
+	def lonelyPlace() {
+		redirect(uri : "grails/pet/hotel-status")
+	}
+
+	def grave() {
+		response << "RIP"
+	}
+	
+	def die() {
+		redirect(uri : "grails/pet/grave", permanent : true)
+	}
 }

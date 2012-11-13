@@ -5,6 +5,11 @@ import org.springframework.samples.petclinic.*;
 import org.springframework.ui.Model;
 
 class FishController {
+  def defaultAction = "jump"
+  
+  def feed() {
+    response.writer.write("Fed fish " + params["id"])    
+  }
 
   def testLuck() {
   
@@ -19,5 +24,18 @@ class FishController {
     model["luckMessage"] = message;  
       
     render(view : 'luck')   
+  }
+  
+  def jump() {
+    response << "Woohoo!"
+  }
+  
+  // Note the base attribute which is unfortunately necessary
+  def enemy() {
+    redirect(controller : 'pet', action : 'show-mascot', base : pathPrefix)
+  }
+  
+  def act() {
+    redirect(action : 'jump', base : pathPrefix)
   }
 }

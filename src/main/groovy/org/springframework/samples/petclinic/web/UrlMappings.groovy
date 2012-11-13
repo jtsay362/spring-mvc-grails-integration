@@ -3,15 +3,21 @@ package org.springframework.samples.petclinic.web
 class UrlMappings {
 		static Closure mappings = {
 				
-				"/$controller/$action?/$id?"{
-						constraints {
-								// apply constraints here
-						}
-				}
-				
 				"/"(view:"/index")
 				"/try-luck"(controller: 'fish', action:'testLuck')
+				"/move"(controller : 'fish')
 				"/shots"(view : 'shot-list')				
 				"/vets-old"(uri : '/vets')
+				"/food" {
+						controller = 'pet'
+						action = 'eat'
+						taste = 'yummy'	
+				}				
+				
+				"/$controller/$action?/$id?"{
+					constraints {
+						id(matches:/\d+/)
+					}
+				}		
 		}
 }
