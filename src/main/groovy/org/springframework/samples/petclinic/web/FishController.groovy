@@ -30,12 +30,11 @@ class FishController {
     response << "Woohoo!"
   }
   
-  // Note the base attribute which is unfortunately necessary
-  def enemy() {
-    redirect(controller : 'pet', action : 'show-mascot', base : pathPrefix)
+  def enemy() {  
+    redirect(controller : 'pet', action : 'show-mascot')
   }
   
   def act() {
-    redirect(action : 'jump', base : pathPrefix)
+    redirect(action : 'jump')
   }
 }
