@@ -18,7 +18,7 @@
       <td>${pet.birthDate}</td>
       <td>${fn:length(pet.visits)}</td>
       <td>
-          <spring:url value="../../owners/{ownerId}" var="ownerUrl">
+          <spring:url value="../owners/{ownerId}" var="ownerUrl">
               <spring:param name="ownerId" value="${pet.owner.id}"/>
           </spring:url>
           <a href="${fn:escapeXml(ownerUrl)}">${pet.owner.firstName} ${pet.owner.lastName}</a>

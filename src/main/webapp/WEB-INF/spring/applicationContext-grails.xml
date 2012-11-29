@@ -20,7 +20,7 @@
   </bean>
   
   <bean id="grailsLinkGenerator" class="org.codehaus.groovy.grails.web.mapping.DefaultLinkGenerator">
-    <constructor-arg value="http://localhost:8080/grails" />
+    <constructor-arg value="http://localhost:8080" />
     <constructor-arg value="" />
   </bean>
   

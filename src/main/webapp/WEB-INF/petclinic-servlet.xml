@@ -28,14 +28,15 @@
     - enabled by default with Java 5+.
   -->
   
-  <mvc:resources mapping="/static/**" location="/"/>
+  <mvc:resources mapping="/static/**" location="/" order="1" />
   
   <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
 
   <bean id="grailsLikeController" 
    class="com.ngweb.web.springmvc.grails.GrailsLikeController" >
-    <property name="pathPrefix" value="/grails" />
+    <!--  property name="pathPrefix" value="/grails" / -->
+    <property name="pathPrefix" value="" />
     <property name="pathSuffixToStrip" value="" />
     <property name="urlMappingsClassName" value="org.springframework.samples.petclinic.web.UrlMappings" />
     <property name="controllerPackageName" value="org.springframework.samples.petclinic.web" />
@@ -47,10 +48,11 @@
 
   <bean id="simpleUrlMapping"
    class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
-    <property name="order" value="0" />
+    <property name="order" value="2" />
     <property name="mappings">
       <props>
-        <prop key="/grails/**">grailsLikeController</prop>       
+        <!-- prop key="/grails/**">grailsLikeController</prop -->
+        <prop key="/**">grailsLikeController</prop>               
       </props>
     </property>
   </bean>

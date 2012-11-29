@@ -11,11 +11,11 @@ class PetController {
 	
 	def index() {
 		model["pets"] = clinic.pets
-		render(view : "/grails/pet/list", model : model)
+		render(view : "/pet/list", model : model)
 	}
 	
 	def types() {		
-		render(view : "/grails/pet/types", model : [petTypes : clinic.petTypes])
+		render(view : "/pet/types", model : [petTypes : clinic.petTypes])
 	}	
 	
 	def showMascot() {
@@ -50,7 +50,7 @@ class PetController {
 	}
 	
 	def lonelyPlace() {
-		redirect(uri : "grails/pet/hotel-status")
+		redirect(uri : "pet/hotel-status")
 	}
 
 	def grave() {
@@ -58,6 +58,6 @@ class PetController {
 	}
 	
 	def die() {
-		redirect(uri : "grails/pet/grave", permanent : true)
+		redirect(uri : "pet/grave", permanent : true)
 	}
 }
