@@ -27,7 +27,7 @@
     - DefaultAnnotationHandlerMapping is driven by these annotations and is 
     - enabled by default with Java 5+.
   -->
-  
+  <!--  The order here guarantees this will run before the GrailsLikeController. -->
   <mvc:resources mapping="/static/**" location="/" order="1" />
   
   <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
@@ -35,7 +35,6 @@
 
   <bean id="grailsLikeController" 
    class="com.ngweb.web.springmvc.grails.GrailsLikeController" >
-    <!--  property name="pathPrefix" value="/grails" / -->
     <property name="pathPrefix" value="" />
     <property name="pathSuffixToStrip" value="" />
     <property name="urlMappingsClassName" value="org.springframework.samples.petclinic.web.UrlMappings" />
@@ -46,12 +45,12 @@
   <!-- Needed to support controllers that implement Controller -->
   <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
 
+  <!--  The order here guarantees this will run after the static resource controller. -->
   <bean id="simpleUrlMapping"
    class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
     <property name="order" value="2" />
     <property name="mappings">
       <props>
-        <!-- prop key="/grails/**">grailsLikeController</prop -->
         <prop key="/**">grailsLikeController</prop>               
       </props>
     </property>
